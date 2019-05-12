@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/MultiLayer GridMap/Dock/Vector3Input.gd" type="Script" id=1]
+[ext_resource path="res://addons/MultiLayer GridMap/Dock/float_LineEdit.gd" type="Script" id=2]
+
+[node name="Vector2Input" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -943.0
+margin_bottom = -513.0
+script = ExtResource( 1 )
+
+[node name="X" type="LineEdit" parent="."]
+anchor_right = 1.0
+margin_left = 19.0
+margin_right = -4.0
+margin_bottom = 24.0
+script = ExtResource( 2 )
+
+[node name="XLabel" type="Label" parent="X"]
+margin_left = -17.0
+margin_right = -2.99997
+margin_bottom = 14.0
+text = "X:"
+
+[node name="Y" type="LineEdit" parent="."]
+anchor_right = 1.0
+margin_left = 19.0
+margin_top = 30.0
+margin_right = -3.99951
+margin_bottom = 54.0
+script = ExtResource( 2 )
+
+[node name="YLabel" type="Label" parent="Y"]
+margin_left = -17.0
+margin_right = -3.0
+margin_bottom = 14.0
+text = "Y:"
+
+[node name="Z" type="LineEdit" parent="."]
+anchor_right = 1.0
+margin_left = 19.0
+margin_top = 60.0
+margin_right = -4.0
+margin_bottom = 84.0
+script = ExtResource( 2 )
+
+[node name="ZLabel" type="Label" parent="Z"]
+margin_left = -17.0
+margin_right = -1.99999
+margin_bottom = 14.0
+text = "Z:"
+

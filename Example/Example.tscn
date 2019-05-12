@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Example/Example.gd" type="Script" id=1]
+[ext_resource path="res://addons/MultiLayer GridMap/CustomNode/Multilayer_GridMap.gd" type="Script" id=2]
+[ext_resource path="res://addons/MultiLayer GridMap/CustomNode/icon.png" type="Texture" id=3]
+[ext_resource path="res://Example/Camera.gd" type="Script" id=4]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="MultiLayer GridMap" type="Spatial" parent="."]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_icon": ExtResource( 3 )
+}
+layer_config = "res://Example/config.mlgmc"
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.00418869, -0.94709, 0.320941, 0, 0.320944, 0.947098, -0.999991, 0.0039671, -0.00134433, 5.73, 15.951, 0 )
+script = ExtResource( 4 )
+[connection signal="click_hit" from="Camera" to="." method="_on_Camera_click_hit"]

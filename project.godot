@@ -1,0 +1,57 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Object",
+"class": "Layer",
+"language": "GDScript",
+"path": "res://addons/MultiLayer GridMap/Layer.gd"
+}, {
+"base": "EditorProperty",
+"class": "LayerSelection",
+"language": "GDScript",
+"path": "res://addons/MultiLayer GridMap/CustomNode/LayerSelection.gd"
+}, {
+"base": "EditorProperty",
+"class": "LayerVisibility",
+"language": "GDScript",
+"path": "res://addons/MultiLayer GridMap/CustomNode/LayerVisibility.gd"
+}, {
+"base": "Spatial",
+"class": "MultiLayerGridMap",
+"language": "GDScript",
+"path": "res://addons/MultiLayer GridMap/CustomNode/Multilayer_GridMap.gd"
+}, {
+"base": "Object",
+"class": "Property",
+"language": "GDScript",
+"path": "res://addons/MultiLayer GridMap/Property.gd"
+} ]
+_global_script_class_icons={
+"Layer": "",
+"LayerSelection": "",
+"LayerVisibility": "",
+"MultiLayerGridMap": "",
+"Property": ""
+}
+
+[application]
+
+config/name="MultiLayer GridMap"
+run/main_scene="res://Example/Example.tscn"
+config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "MultiLayer GridMap" )
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
