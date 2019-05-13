@@ -4,6 +4,7 @@ var mlgm : MultiLayerGridMap = null
 
 func _ready():
 	mlgm = get_node("MultiLayer GridMap")
+	print(mlgm.gridmaps.size())
 
 func _on_Camera_click_hit(hit):
 	var is_mlgm_child = false

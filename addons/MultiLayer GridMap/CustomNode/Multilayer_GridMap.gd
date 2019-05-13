@@ -33,11 +33,7 @@ func select_layer(layer_idx):
 	sel.add_node(gridmaps[layer_idx])
 
 func _ready():
-	var path = ""
-	if(Engine.editor_hint):
-		path = get_tree().edited_scene_root.filename.replace(".tscn", ".mglmap")
-	else:
-		path = get_tree().root.get_child(0).filename.replace(".tscn", ".mglmap")
+	var path = owner.filename.replace(".tscn", ".mglmap")
 	if !(load_from_file(path)):
 		print("Couldn't load file: " + path)
 		load_layer_config(layer_config)
