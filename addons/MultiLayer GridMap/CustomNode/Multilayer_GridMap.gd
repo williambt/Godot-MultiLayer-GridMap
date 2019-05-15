@@ -25,6 +25,23 @@ const save_delay : float = 1.0
 
 var rt = null
 
+export var cell_size : Vector3 = Vector3(2, 2, 2) setget set_cell_size, get_cell_size
+export var cell_scale : float = 1.0 setget set_cell_scale, get_cell_scale
+
+func set_cell_size(val : Vector3):
+	cell_size = val
+	for g in gridmaps:
+		g.cell_size = cell_size
+func get_cell_size():
+	return cell_size
+	
+func set_cell_scale(val : float):
+	cell_scale = val
+	for g in gridmaps:
+		g.cell_scale = cell_scale
+func get_cell_scale():
+	return cell_scale
+
 func select_layer(layer_idx):
 	if (layer_idx < 0 || layer_idx >= gridmaps.size()):
 		return
@@ -149,4 +166,14 @@ func get_tile(pos : Vector3):
 					continue
 				res[l.properties[p].name] = null
 	return res
-			
+
+func world_to_map(pos : Vector3):
+	if (gridmaps.size() > 0):
+		return gridmaps[0].world_to_map(pos)
+	else:
+		return null
+func map_to_world(coord : Vector3):
+	if (gridmaps.size() > 0):
+		return gridmaps[0].map_to_world(coord)
+	else:
+		return null

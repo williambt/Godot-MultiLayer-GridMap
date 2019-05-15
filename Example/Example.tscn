@@ -14,8 +14,19 @@ __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
 layer_config = "res://Example/config.mlgmc"
+cell_size = Vector3( 4, 4, 4 )
+cell_scale = 2.0
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -0.00418869, -0.94709, 0.320941, 0, 0.320944, 0.947098, -0.999991, 0.0039671, -0.00134433, 5.73, 15.951, 0 )
 script = ExtResource( 4 )
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.90645, 0 )
+data = {
+"cells": PoolIntArray(  )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
 [connection signal="click_hit" from="Camera" to="." method="_on_Camera_click_hit"]
