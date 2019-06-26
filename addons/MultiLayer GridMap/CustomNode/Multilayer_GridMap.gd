@@ -50,7 +50,9 @@ func select_layer(layer_idx):
 	sel.add_node(gridmaps[layer_idx])
 
 func _ready():
-	var path = owner.filename.replace(".tscn", ".mglmap")
+	var path = ""
+	if(owner != null):
+		path = owner.filename.replace(".tscn", ".mlgmap")
 	if !(load_from_file(path)):
 		print("Couldn't load file: " + path)
 		load_layer_config(layer_config)
@@ -105,7 +107,7 @@ func _process(delta):
 		save_timer += delta
 		if(save_timer >= save_delay):
 			save_timer -= save_delay
-			save_to_file(get_tree().edited_scene_root.filename.replace(".tscn", ".mglmap"))
+			save_to_file(get_tree().edited_scene_root.filename.replace(".tscn", ".mlgmap"))
 
 func save_to_file(path):
 	var file = File.new()

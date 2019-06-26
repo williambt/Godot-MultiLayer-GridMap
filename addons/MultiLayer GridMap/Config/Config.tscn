@@ -1,0 +1,352 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/MultiLayer GridMap/Config/Dock.gd" type="Script" id=1]
+[ext_resource path="res://addons/MultiLayer GridMap/Config/CinfigFileName.gd" type="Script" id=2]
+[ext_resource path="res://addons/MultiLayer GridMap/Config/LayersController.gd" type="Script" id=3]
+[ext_resource path="res://addons/MultiLayer GridMap/Config/UseMeshLibCheck.gd" type="Script" id=4]
+[ext_resource path="res://addons/MultiLayer GridMap/Config/FileDialogButton.gd" type="Script" id=5]
+[ext_resource path="res://addons/MultiLayer GridMap/Config/PropertiesController.gd" type="Script" id=6]
+[ext_resource path="res://addons/MultiLayer GridMap/Config/PropertyType.gd" type="Script" id=7]
+[ext_resource path="res://addons/MultiLayer GridMap/Config/PropertyValue.gd" type="Script" id=8]
+[ext_resource path="res://addons/MultiLayer GridMap/Config/ScrollButton.gd" type="Script" id=9]
+
+[node name="Config" type="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1024.0
+margin_right = -789.0
+script = ExtResource( 1 )
+
+[node name="ConfigMenu" type="Control" parent="."]
+anchor_right = 0.47
+margin_left = 27.0
+margin_right = -43.45
+margin_bottom = 40.0
+
+[node name="ConfigSaveLoad" type="Control" parent="ConfigMenu"]
+margin_left = 9.0
+margin_top = 10.0
+margin_right = 219.0
+margin_bottom = 34.0
+script = ExtResource( 2 )
+
+[node name="SaveButton" type="Button" parent="ConfigMenu/ConfigSaveLoad"]
+margin_left = 1.97512
+margin_right = 42.9751
+margin_bottom = 20.0
+text = "Save"
+
+[node name="SaveDialog" type="FileDialog" parent="ConfigMenu/ConfigSaveLoad/SaveButton"]
+margin_left = 369.0
+margin_top = 16.0
+margin_right = 853.0
+margin_bottom = 395.0
+resizable = true
+access = 2
+filters = PoolStringArray( "*.mlgmc" )
+current_dir = "C:/Users/willn/Desktop/Lixo/Godot/Projects/MLGMProj"
+current_path = "C:/Users/willn/Desktop/Lixo/Godot/Projects/MLGMProj/"
+
+[node name="LoadButton" type="Button" parent="ConfigMenu/ConfigSaveLoad"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -149.0
+margin_right = -107.0
+margin_bottom = 20.0
+text = "Load"
+
+[node name="LoadDialog" type="FileDialog" parent="ConfigMenu/ConfigSaveLoad/LoadButton"]
+margin_left = 707.0
+margin_top = 11.0
+margin_right = 1191.0
+margin_bottom = 390.0
+window_title = "Open a File"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.mlgmc" )
+current_dir = "C:/Users/willn/Desktop/Lixo/Godot/Projects/MLGMProj"
+current_path = "C:/Users/willn/Desktop/Lixo/Godot/Projects/MLGMProj/"
+
+[node name="Layers" type="Control" parent="ConfigMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 61.0
+margin_right = -40.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 1.44678, 295.678 )
+script = ExtResource( 3 )
+
+[node name="LayersLabel" type="Label" parent="ConfigMenu/Layers"]
+margin_left = 9.0
+margin_top = -19.0
+margin_right = 50.0
+margin_bottom = -5.0
+text = "Layers"
+
+[node name="AddLayerButton" type="Button" parent="ConfigMenu/Layers"]
+margin_left = 10.9751
+margin_top = 10.0
+margin_right = 30.9751
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 3.95872, 14.9237 )
+text = "+"
+
+[node name="RemoveLayerButton" type="Button" parent="ConfigMenu/Layers"]
+margin_left = 30.9751
+margin_top = 10.0
+margin_right = 50.9751
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 3.95872, 14.9237 )
+text = "-"
+
+[node name="LayerList" type="ItemList" parent="ConfigMenu/Layers"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 30.0
+margin_right = 220.0
+margin_bottom = 125.0
+
+[node name="LayerName" type="LineEdit" parent="ConfigMenu/Layers"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 161.053
+margin_right = 220.0
+margin_bottom = 185.053
+editable = false
+caret_blink = true
+
+[node name="LayerNameLabel" type="Label" parent="ConfigMenu/Layers/LayerName"]
+margin_top = -23.0
+margin_right = 80.0
+margin_bottom = -9.0
+text = "Layer Name:"
+
+[node name="LayerSettingsSeparator" type="HSeparator" parent="ConfigMenu/Layers"]
+editor/display_folded = true
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 220.0
+margin_right = 220.0
+margin_bottom = 224.0
+
+[node name="LayerSettingsLabel" type="Label" parent="ConfigMenu/Layers/LayerSettingsSeparator"]
+margin_top = -20.0
+margin_right = 89.0
+margin_bottom = -6.0
+text = "Layer Settings"
+
+[node name="VisibilityCheck" type="CheckBox" parent="ConfigMenu/Layers"]
+margin_left = 150.0
+margin_top = 233.869
+margin_right = 174.0
+margin_bottom = 257.869
+disabled = true
+
+[node name="VisibilityLabel" type="Label" parent="ConfigMenu/Layers/VisibilityCheck"]
+margin_left = -140.0
+margin_right = -32.9997
+margin_bottom = 14.0
+text = "Visible In-Game:"
+
+[node name="UseMeshLibCheck" type="CheckBox" parent="ConfigMenu/Layers"]
+anchor_right = 1.0
+margin_left = 150.0
+margin_top = 264.75
+margin_right = 174.0
+margin_bottom = 288.75
+disabled = true
+script = ExtResource( 4 )
+
+[node name="UseMeshLibLabel" type="Label" parent="ConfigMenu/Layers/UseMeshLibCheck"]
+margin_left = -140.0
+margin_top = -1.22775
+margin_right = -48.9997
+margin_bottom = 12.7722
+text = "Use MeshLib: "
+
+[node name="MeshLibButton" type="Button" parent="ConfigMenu/Layers/UseMeshLibCheck"]
+anchor_right = 1.0
+margin_left = -61.9
+margin_top = 32.4
+margin_right = 55.1
+margin_bottom = 52.4
+disabled = true
+text = "Click to choose file  "
+clip_text = true
+script = ExtResource( 5 )
+file_dialog_path = NodePath("MeshLibFileDialog")
+
+[node name="MeshLibLabel" type="Label" parent="ConfigMenu/Layers/UseMeshLibCheck/MeshLibButton"]
+margin_left = -66.2
+margin_top = 2.84998
+margin_right = 24.8
+margin_bottom = 16.85
+custom_colors/font_color = Color( 0.454902, 0.454902, 0.454902, 1 )
+text = "MeshLib: "
+
+[node name="MeshLibFileDialog" type="FileDialog" parent="ConfigMenu/Layers/UseMeshLibCheck/MeshLibButton"]
+margin_left = 304.278
+margin_top = 157.849
+margin_right = 670.278
+margin_bottom = 435.849
+window_title = "Open a File"
+resizable = true
+mode = 0
+filters = PoolStringArray( ".meshlib" )
+current_file = "tile.shader"
+current_path = "res://tile.shader"
+
+[node name="UseAsPropertiesCheck" type="CheckBox" parent="ConfigMenu/Layers"]
+margin_left = 150.0
+margin_top = 330.0
+margin_right = 174.0
+margin_bottom = 354.0
+disabled = true
+
+[node name="UseAsPropertiesLabel" type="Label" parent="ConfigMenu/Layers/UseAsPropertiesCheck"]
+margin_left = -140.0
+margin_right = -16.9997
+margin_bottom = 14.0
+text = "Use As Properties: "
+
+[node name="Properties" type="Control" parent="ConfigMenu/Layers"]
+visible = false
+anchor_right = 1.0
+margin_top = 350.0
+margin_right = 40.0
+margin_bottom = 390.0
+script = ExtResource( 6 )
+
+[node name="PropertiesSeparator" type="HSeparator" parent="ConfigMenu/Layers/Properties"]
+editor/display_folded = true
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 38.0
+margin_right = 180.0
+margin_bottom = 42.0
+
+[node name="LayerSettingsLabel" type="Label" parent="ConfigMenu/Layers/Properties/PropertiesSeparator"]
+margin_top = -20.0
+margin_right = 89.0
+margin_bottom = -6.0
+text = "Properties"
+
+[node name="AddPropertyButton" type="Button" parent="ConfigMenu/Layers/Properties"]
+margin_left = 10.9751
+margin_top = 50.0
+margin_right = 30.9751
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 3.95872, 14.9237 )
+text = "+"
+
+[node name="RemovePropertyButton2" type="Button" parent="ConfigMenu/Layers/Properties"]
+margin_left = 30.9751
+margin_top = 50.0
+margin_right = 50.9751
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 3.95872, 14.9237 )
+text = "-"
+
+[node name="PropertyList" type="ItemList" parent="ConfigMenu/Layers/Properties"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 70.0
+margin_right = 180.0
+margin_bottom = 167.0
+
+[node name="PropertyName" type="LineEdit" parent="ConfigMenu/Layers/Properties"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 198.0
+margin_right = 180.0
+margin_bottom = 222.0
+caret_blink = true
+
+[node name="PropertyNameLabel" type="Label" parent="ConfigMenu/Layers/Properties/PropertyName"]
+margin_top = -23.0
+margin_right = 100.0
+margin_bottom = -9.0
+text = "Property Name:"
+
+[node name="MeshColour" type="ColorPickerButton" parent="ConfigMenu/Layers/Properties"]
+margin_left = 146.1
+margin_top = 234.742
+margin_right = 176.1
+margin_bottom = 254.742
+hint_tooltip = "Colour of the mesh for this property"
+color = Color( 1, 1, 1, 1 )
+
+[node name="MeshColourLabel" type="Label" parent="ConfigMenu/Layers/Properties/MeshColour"]
+margin_left = -136.1
+margin_top = 1.54322
+margin_right = -52.1
+margin_bottom = 15.5432
+text = "Mesh Colour:"
+
+[node name="PropertyType" type="Button" parent="ConfigMenu/Layers/Properties"]
+margin_left = 10.0
+margin_top = 288.0
+margin_right = 180.0
+margin_bottom = 312.0
+text = "Bool"
+script = ExtResource( 7 )
+menu_path = NodePath("../../../TypeMenu")
+
+[node name="PropertTypeLabel" type="Label" parent="ConfigMenu/Layers/Properties/PropertyType"]
+margin_top = -20.0
+margin_right = 80.0
+margin_bottom = -6.0
+text = "Property Type:"
+
+[node name="PropertyValue" type="Control" parent="ConfigMenu/Layers/Properties"]
+anchor_right = 1.0
+margin_left = 9.0
+margin_top = 348.0
+margin_right = -31.0
+margin_bottom = 348.0
+script = ExtResource( 8 )
+
+[node name="PropertValueLabel" type="Label" parent="ConfigMenu/Layers/Properties/PropertyValue"]
+margin_top = -20.0
+margin_right = 80.0
+margin_bottom = -6.0
+text = "Property Value:"
+
+[node name="TypeMenu" type="PopupMenu" parent="ConfigMenu"]
+margin_left = 10.0
+margin_top = 644.0
+margin_right = 180.0
+margin_bottom = 786.0
+items = [ "Bool", null, 2, true, false, -1, 0, null, "", false, "Int", null, 2, false, false, -1, 0, null, "", false, "Float", null, 2, false, false, -1, 0, null, "", false, "String", null, 2, false, false, -1, 0, null, "", false, "Colour", null, 2, false, false, -1, 0, null, "", false, "Vector2", null, 2, false, false, 5, 0, null, "", false, "Vector3", null, 2, false, false, 6, 0, null, "", false ]
+
+[node name="ScrollButton" type="Button" parent="."]
+margin_top = 240.0
+margin_right = 27.0
+margin_bottom = 416.0
+script = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="ScrollButton"]
+margin_top = 144.869
+margin_right = 111.0
+margin_bottom = 158.869
+rect_rotation = 270.0
+text = "DRAG TO SCROLL"
+[connection signal="load_path_selected" from="ConfigMenu/ConfigSaveLoad" to="ConfigMenu/Layers" method="load_from_file"]
+[connection signal="save_path_selected" from="ConfigMenu/ConfigSaveLoad" to="ConfigMenu/Layers" method="save_to_file"]
+[connection signal="button_up" from="ConfigMenu/ConfigSaveLoad/SaveButton" to="ConfigMenu/ConfigSaveLoad" method="_on_SaveButton_button_up"]
+[connection signal="file_selected" from="ConfigMenu/ConfigSaveLoad/SaveButton/SaveDialog" to="ConfigMenu/ConfigSaveLoad" method="_on_SaveDialog_file_selected"]
+[connection signal="button_up" from="ConfigMenu/ConfigSaveLoad/LoadButton" to="ConfigMenu/ConfigSaveLoad" method="_on_LoadButton_button_up"]
+[connection signal="file_selected" from="ConfigMenu/ConfigSaveLoad/LoadButton/LoadDialog" to="ConfigMenu/ConfigSaveLoad" method="_on_LoadDialog_file_selected"]
+[connection signal="button_up" from="ConfigMenu/Layers/AddLayerButton" to="ConfigMenu/Layers" method="new_layer"]
+[connection signal="button_up" from="ConfigMenu/Layers/RemoveLayerButton" to="ConfigMenu/Layers" method="remove_selected_layer"]
+[connection signal="item_selected" from="ConfigMenu/Layers/LayerList" to="ConfigMenu/Layers" method="_on_LayerList_item_selected"]
+[connection signal="text_changed" from="ConfigMenu/Layers/LayerName" to="ConfigMenu/Layers" method="_on_LayerName_text_changed"]
+[connection signal="resized" from="ConfigMenu/Layers/UseMeshLibCheck/MeshLibButton" to="ConfigMenu/Layers/UseMeshLibCheck/MeshLibButton" method="_on_MeshLibButton_resized"]
+[connection signal="pressed" from="ConfigMenu/Layers/UseAsPropertiesCheck" to="ConfigMenu/Layers" method="_on_UseAsPropertiesCheck_pressed"]
+[connection signal="button_up" from="ConfigMenu/Layers/Properties/AddPropertyButton" to="ConfigMenu/Layers/Properties" method="new_property"]
+[connection signal="button_up" from="ConfigMenu/Layers/Properties/RemovePropertyButton2" to="ConfigMenu/Layers/Properties" method="remove_selected_property"]
+[connection signal="item_selected" from="ConfigMenu/Layers/Properties/PropertyList" to="ConfigMenu/Layers/Properties" method="_on_PropertyList_item_selected"]
+[connection signal="text_changed" from="ConfigMenu/Layers/Properties/PropertyName" to="ConfigMenu/Layers/Properties" method="_on_PropertyName_text_changed"]
+[connection signal="button_down" from="ConfigMenu/Layers/Properties/PropertyType" to="ConfigMenu/Layers/Properties/PropertyType" method="_on_PropertyType_button_down"]

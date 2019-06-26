@@ -6,7 +6,7 @@ var dock
 
 func _enter_tree():
 	inspector = preload("res://addons/MultiLayer GridMap/CustomNode/InspectorPlugin.gd").new()
-	dock = preload("res://addons/MultiLayer GridMap/Dock/Dock.tscn").instance()
+	dock = preload("res://addons/MultiLayer GridMap/Config/Config.tscn").instance()
 	add_custom_type("MultiLayer GridMap", "Spatial", preload("res://addons/MultiLayer GridMap/CustomNode/Multilayer_GridMap.gd"), preload("res://addons/MultiLayer GridMap/CustomNode/icon.png"))
 	#add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
 	get_editor_interface().get_editor_viewport().add_child(dock)

@@ -4,10 +4,10 @@ extends Control
 var curr_input = null
 var curr_type = ""
 
-var int_LineEdit = preload("res://addons/MultiLayer GridMap/Dock/int_LineEdit.gd")
-var float_LineEdit = preload("res://addons/MultiLayer GridMap/Dock/float_LineEdit.gd")
-var Vector2Input = preload("res://addons/MultiLayer GridMap/Dock/Vector2Input.tscn")
-var Vector3Input = preload("res://addons/MultiLayer GridMap/Dock/Vector3Input.tscn")
+var int_LineEdit = preload("res://addons/MultiLayer GridMap/Config/int_LineEdit.gd")
+var float_LineEdit = preload("res://addons/MultiLayer GridMap/Config/float_LineEdit.gd")
+var Vector2Input = preload("res://addons/MultiLayer GridMap/Config/Vector2Input.tscn")
+var Vector3Input = preload("res://addons/MultiLayer GridMap/Config/Vector3Input.tscn")
 
 var _disabled : bool = false
 var disabled setget _set_disabled, _get_disabled
